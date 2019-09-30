@@ -55,7 +55,7 @@ void main() {
                       new RichText(
                           text: new TextSpan(text: '', children: [
                         new TextSpan(
-                          text: 'Song Title\n',
+                          text: 'Devo Title\n',
                           style: new TextStyle(
                             color: Colors.white,
                             fontSize: 14.0,
