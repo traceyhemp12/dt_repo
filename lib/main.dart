@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:drive_time/theme.dart';
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
+
 
 void main() {
+
+  AudioCache audioCache = new AudioCache();
+  AudioPlayer advancedPlayer = new AudioPlayer();
+  String localFilePath;
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xFFFAB431),
           elevation: 0.0,
-          title: Text('ODB Drive Time'),
+          title: Text('Our Daily Drive'),
           leading: new IconButton(
             icon: new Icon(
               Icons.arrow_back_ios,
@@ -29,7 +37,10 @@ void main() {
         body: new Column(
           children: <Widget>[
             //seek bar
-
+            new Container(
+              width: double.infinity,
+              height: 125.0,
+            ),
             new Expanded(
               child: new Center(
                 child: Container(
@@ -44,12 +55,17 @@ void main() {
               width: double.infinity,
               height: 125.0,
             ),
-
+            //seek bar
+            new Container(
+              width: double.infinity,
+              height: 125.0,
+              
+            ),
             //song title, artist name and controls
             Container(
                 color: accentColor,
                 child: new Padding(
-                  padding: const EdgeInsets.only(top: 40.0, bottom: 50.0),
+                  padding: const EdgeInsets.only(top: 40.0, bottom: 60.0),
                   child: new Column(
                     children: <Widget>[
                       new RichText(
@@ -75,7 +91,7 @@ void main() {
                             ))
                       ])),
                       Padding(
-                        padding: const EdgeInsets.only(top: 40.0),
+                        padding: const EdgeInsets.only(top: 30.0, bottom: 50.0),
                         child: new Row(
                           children: <Widget>[
                             new Expanded(child: new Container()),
@@ -83,7 +99,7 @@ void main() {
                               icon: new Icon(
                                 Icons.skip_previous,
                                 color: Colors.white,
-                                size: 37.0,
+                                size: 50.0,
                               ),
                               onPressed: () {
                                 //todo
@@ -95,17 +111,18 @@ void main() {
                               fillColor: Colors.white,
                               splashColor: lightAccentColor,
                               highlightColor: lightAccentColor.withOpacity(0.5),
-                              elevation: 10.0,
+                              elevation: 15.0,
                               highlightElevation: 0.5,
                               onPressed: () {
                                 //todo
+
                               },
                               child: new Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: new Icon(
                                   Icons.play_arrow,
                                   color: darkAccentColor,
-                                  size: 35,
+                                  size: 75,
                                 ),
                               ),
                             ),
@@ -114,7 +131,7 @@ void main() {
                               icon: new Icon(
                                 Icons.skip_next,
                                 color: Colors.white,
-                                size: 37.0,
+                                size: 50.0,
                               ),
                               onPressed: () {
                                 //todo
@@ -131,3 +148,5 @@ void main() {
         )),
   ));
 }
+
+
